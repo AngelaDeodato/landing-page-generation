@@ -12,13 +12,7 @@ function getScrollTopByHref(element) {
 // Animar o scroll até o alvo
 
 function scrollToPosition(to) {
-   /*
-   Caso queira o nativo do Chrome apenas
-      window.scroll({
-      top: to,
-      behavior: "smooth"
-   })
-   */
+   
    smoothScrollTo(0, to)
 
 }
@@ -35,14 +29,6 @@ menuItens.forEach(item => {
    item.addEventListener('click', scrollToIdOnClick)
 })
 
-
-// Caso deseje suporte a browsers antigos / que não suportam scroll smooth nativo
-/**
- * Smooth scroll animation
- * @param {int} endX: destination x coordinate
- * @param {int) endY: destination y coordinate
- * @param {int} duration: animation duration in ms
- */
 function smoothScrollTo(endX, endY, duration) {
    const startX = window.scrollX || window.pageXOffset;
    const startY = window.scrollY || window.pageYOffset;
@@ -66,10 +52,10 @@ function smoothScrollTo(endX, endY, duration) {
          clearInterval(timer);
       }
       window.scroll(newX, newY);
-   }, 1000 / 60); // 60 fps
+   }, 1000 / 60);
 };
 
-
+/*Validando o Formulario*/
 function enviar() {
    let nome = document.querySelector('#nome')
    let email = document.querySelector('#email')
@@ -81,5 +67,3 @@ function enviar() {
       alert('Preencha todos os campos antes de enviar o formulário!')
    } else {
       alert('Formulário enviado com sucesso!')
-   }
-}
